@@ -13,11 +13,9 @@ namespace SalaryApp.Models
         public int uniformsCharge {get; set;}
         public int phoneCharge {get;set;}
         public int lunchCharge {get;set;}
-        
-        [DataType(DataType.Date)]
-        public DateTime dayTake { get; set;}
 
         //Tham chiếu tới salary
+        public int SalaryId{get;set;}
         public Salary Salary{get;set;}
     }
 }

@@ -9,7 +9,7 @@ namespace SalaryApp.Models
     public class Staff
     {
         [Key]
-        public int Id { get; set; }
+        public int StaffId { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -22,9 +22,7 @@ namespace SalaryApp.Models
         [Required]
         [StringLength(50)]
         public string Email { get; set; }
-
-        // public List<Salary> Salarys {get; set;} = new List<Salary>();
-        public ICollection<Salary> Salary {get;set;}
-
+        //Foreign key: Staff 1->N Salary
+        public List<Salary> Salaries{get;set;}
     }
 }

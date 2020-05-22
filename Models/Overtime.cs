@@ -14,5 +14,7 @@ namespace SalaryApp.Models
         public int overtimeSalary{get;set;}
         
         //Tham chiếu tới salary
+        public int SalaryId{get;set;}
+        public Salary Salary{get;set;}
     }
 }
