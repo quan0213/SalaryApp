@@ -10,7 +10,10 @@ namespace SalaryApp.Data
         {
         }
 
-        public DbSet<Staff> Staff { get; set; }
+        public DbSet<Staff> Staffs{ get; set; }
+        public DbSet<Salary> Salaries{get;set;}
+        public DbSet<Overtime> Overtimes{get;set;}
+        public DbSet<Allowance> Allowances{get;set;}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

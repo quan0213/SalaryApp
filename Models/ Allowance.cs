@@ -14,6 +14,10 @@ namespace SalaryApp.Models
         public int phoneCharge {get;set;}
         public int lunchCharge {get;set;}
         
+        [DataType(DataType.Date)]
+        public DateTime dayTake { get; set;}
+
         //Tham chiếu tới salary
+        public Salary Salary{get;set;}
     }
 }

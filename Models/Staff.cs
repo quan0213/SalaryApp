@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace SalaryApp.Models
 {
@@ -21,6 +22,9 @@ namespace SalaryApp.Models
         [Required]
         [StringLength(50)]
         public string Email { get; set; }
+
+        // public List<Salary> Salarys {get; set;} = new List<Salary>();
+        public ICollection<Salary> Salary {get;set;}
 
     }
 }
