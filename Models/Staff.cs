@@ -1,16 +1,26 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SalaryApp.Models
 {
-    public class Hr
+    [Table("Staff")]
+    public class Staff
     {
+        [Key]
         public int Id { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string Name { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime dayIn { get; set; }
         public string Regency { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string Email { get; set; }
+
     }
 }
