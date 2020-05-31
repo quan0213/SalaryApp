@@ -26,9 +26,7 @@ namespace SalaryApp.Data
 
             DataSet result = excelReader.AsDataSet();
 
-            Console.WriteLine(result.Tables[0].Rows[7][2]);
-            
-            excelReader.Close();
+            Console.WriteLine(result.Tables[0].Rows[8][3]);
 
         }
     }
