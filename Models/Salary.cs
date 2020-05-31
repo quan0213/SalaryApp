@@ -21,7 +21,7 @@ namespace SalaryApp.Models
         public int totalSalary { get; set; }
 
         //Foreign key: Staff 1->N Salary
-        public int staffID{get;set;}
+        public string staffID{get;set;}
         public Staff Staff{get;set;}
 
         //Foreign key: Salary 1->N Overtime, Allowance

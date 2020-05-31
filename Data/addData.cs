@@ -26,8 +26,29 @@ namespace SalaryApp.Data
 
             DataSet result = excelReader.AsDataSet();
 
-            Console.WriteLine(result.Tables[0].Rows[8][3]);
-
+            for(int i = 7; i <= 79; i++)
+            {
+                DateTime temp;
+                string stemp = " ";  
+                if(result.Tables[0].Rows[i][4].ToString()[0] == stemp[0]){
+                    temp = DateTime.Now;
+                }
+                else{
+                    temp = DateTime.Parse(result.Tables[0].Rows[i][4].ToString());
+                }
+                
+                context.Staffs.AddRange(
+                    new Staff{
+                        StaffId = result.Tables[0].Rows[i][1].ToString(),
+                        Name = result.Tables[0].Rows[i][2].ToString(),
+                        dayIn = temp,
+                        Regency = result.Tables[0].Rows[i][3].ToString(),
+                        Email = "None"
+                    }
+                );
+                context.SaveChanges();
+                    // Console.WriteLine(result.Tables[0].Rows[i][4].ToString());
+            }
         }
     }
 }

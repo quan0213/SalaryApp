@@ -9,7 +9,7 @@ namespace SalaryApp.Models
     public class Staff
     {
         [Key]
-        public int StaffId { get; set; }
+        public string StaffId { get; set; }
 
         [Required]
         [StringLength(50)]

@@ -96,8 +96,8 @@ namespace SalaryApp.Migrations
                     b.Property<int>("keepSalary")
                         .HasColumnType("int");
 
-                    b.Property<int>("staffID")
-                        .HasColumnType("int");
+                    b.Property<string>("staffID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("supportCash")
                         .HasColumnType("int");
@@ -114,10 +114,8 @@ namespace SalaryApp.Migrations
 
             modelBuilder.Entity("SalaryApp.Models.Staff", b =>
                 {
-                    b.Property<int>("StaffId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("StaffId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -162,9 +160,7 @@ namespace SalaryApp.Migrations
                 {
                     b.HasOne("SalaryApp.Models.Staff", "Staff")
                         .WithMany("Salaries")
-                        .HasForeignKey("staffID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("staffID");
                 });
 #pragma warning restore 612, 618
         }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SalaryApp.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,8 +11,7 @@ namespace SalaryApp.Migrations
                 name: "Staff",
                 columns: table => new
                 {
-                    StaffId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StaffId = table.Column<string>(nullable: false),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     dayIn = table.Column<DateTime>(nullable: false),
                     Regency = table.Column<string>(nullable: true),
@@ -36,7 +35,7 @@ namespace SalaryApp.Migrations
                     basicSalary = table.Column<int>(nullable: false),
                     keepSalary = table.Column<int>(nullable: false),
                     totalSalary = table.Column<int>(nullable: false),
-                    staffID = table.Column<int>(nullable: false)
+                    staffID = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -46,7 +45,7 @@ namespace SalaryApp.Migrations
                         column: x => x.staffID,
                         principalTable: "Staff",
                         principalColumn: "StaffId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
