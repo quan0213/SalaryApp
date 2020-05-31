@@ -167,3 +167,10 @@
 /Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.0/System.Runtime.Caching.dll
 /Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Runtime.Caching.dll
 /Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/ExcelDataReader.dll
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/ExcelDataReader.DataSet.dll
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/Syncfusion.Compression.Portable.dll
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/Syncfusion.Licensing.dll
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/Syncfusion.XlsIO.Portable.dll
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/EPPlus.dll
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/System.Xml.XPath.XmlDocument.dll
