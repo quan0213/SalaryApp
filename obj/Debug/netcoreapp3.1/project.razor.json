@@ -20551,6 +20551,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/trungquan/Documents/DILAM/SalaryApp/Views/Staffs/Index.cshtml",
+      "TargetPath": "Views\\Staffs\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/trungquan/Documents/DILAM/SalaryApp/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"

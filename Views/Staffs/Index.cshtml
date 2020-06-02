@@ -1,0 +1,60 @@
+@model SalaryApp.Models.SalaryViewModels.InstructorIndexData
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    First
+                </th>
+                <th>
+                    Second
+                </th>
+                <th>
+                    Third
+                </th>
+                <th>
+                    Fourth
+                </th>
+                <th>
+                    Fifth
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Staffs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dayIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Regency)
+            </td>
+            <td>
+                @if(item.Salaries != null){
+                    @item.Salaries.StaffId
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StaffId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StaffId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StaffId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
