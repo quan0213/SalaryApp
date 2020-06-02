@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SalaryApp.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialCreate1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,21 +28,21 @@ namespace SalaryApp.Migrations
                 {
                     SalaryId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    StaffId = table.Column<string>(nullable: true),
                     dayTakeId = table.Column<DateTime>(nullable: false),
                     chargeTax = table.Column<int>(nullable: false),
                     chargeInsurrance = table.Column<int>(nullable: false),
                     supportCash = table.Column<int>(nullable: false),
                     basicSalary = table.Column<int>(nullable: false),
                     keepSalary = table.Column<int>(nullable: false),
-                    totalSalary = table.Column<int>(nullable: false),
-                    staffID = table.Column<string>(nullable: true)
+                    totalSalary = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Salary", x => x.SalaryId);
                     table.ForeignKey(
-                        name: "FK_Salary_Staff_staffID",
-                        column: x => x.staffID,
+                        name: "FK_Salary_Staff_StaffId",
+                        column: x => x.StaffId,
                         principalTable: "Staff",
                         principalColumn: "StaffId",
                         onDelete: ReferentialAction.Restrict);
@@ -54,11 +54,11 @@ namespace SalaryApp.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    SalaryId = table.Column<int>(nullable: false),
                     bonusKPI = table.Column<int>(nullable: false),
                     uniformsCharge = table.Column<int>(nullable: false),
                     phoneCharge = table.Column<int>(nullable: false),
-                    lunchCharge = table.Column<int>(nullable: false),
-                    SalaryId = table.Column<int>(nullable: false)
+                    lunchCharge = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -77,10 +77,10 @@ namespace SalaryApp.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    SalaryId = table.Column<int>(nullable: false),
                     dayOff = table.Column<int>(nullable: false),
                     overtimeHours = table.Column<int>(nullable: false),
-                    overtimeSalary = table.Column<int>(nullable: false),
-                    SalaryId = table.Column<int>(nullable: false)
+                    overtimeSalary = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -104,9 +104,9 @@ namespace SalaryApp.Migrations
                 column: "SalaryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Salary_staffID",
+                name: "IX_Salary_StaffId",
                 table: "Salary",
-                column: "staffID");
+                column: "StaffId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

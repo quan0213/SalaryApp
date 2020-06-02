@@ -10,6 +10,7 @@ namespace SalaryApp.Models
     {
         [Key]
         public int SalaryId{get;set;}
+        public string StaffId{get;set;}
 
         [DataType(DataType.Date)]
         public DateTime dayTakeId { get; set; }
@@ -21,7 +22,6 @@ namespace SalaryApp.Models
         public int totalSalary { get; set; }
 
         //Foreign key: Staff 1->N Salary
-        public string staffID{get;set;}
         public Staff Staff{get;set;}
 
         //Foreign key: Salary 1->N Overtime, Allowance

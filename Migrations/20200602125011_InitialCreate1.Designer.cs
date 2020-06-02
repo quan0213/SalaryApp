@@ -10,8 +10,8 @@ using SalaryApp.Data;
 namespace SalaryApp.Migrations
 {
     [DbContext(typeof(SalaryAppContext))]
-    [Migration("20200531155238_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200602125011_InitialCreate1")]
+    partial class InitialCreate1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -83,6 +83,9 @@ namespace SalaryApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("StaffId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("basicSalary")
                         .HasColumnType("int");
 
@@ -98,9 +101,6 @@ namespace SalaryApp.Migrations
                     b.Property<int>("keepSalary")
                         .HasColumnType("int");
 
-                    b.Property<string>("staffID")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("supportCash")
                         .HasColumnType("int");
 
@@ -109,7 +109,7 @@ namespace SalaryApp.Migrations
 
                     b.HasKey("SalaryId");
 
-                    b.HasIndex("staffID");
+                    b.HasIndex("StaffId");
 
                     b.ToTable("Salary");
                 });
@@ -162,7 +162,7 @@ namespace SalaryApp.Migrations
                 {
                     b.HasOne("SalaryApp.Models.Staff", "Staff")
                         .WithMany("Salaries")
-                        .HasForeignKey("staffID");
+                        .HasForeignKey("StaffId");
                 });
 #pragma warning restore 612, 618
         }

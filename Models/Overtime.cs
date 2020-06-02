@@ -9,12 +9,12 @@ namespace SalaryApp.Models
     {
         [Key]
         public int Id { get; set; }
+        public int SalaryId{get;set;}
         public int dayOff {get; set;}
         public int overtimeHours{get; set;}
         public int overtimeSalary{get;set;}
         
         //Tham chiếu tới salary
-        public int SalaryId{get;set;}
         public Salary Salary{get;set;}
     }
 }
