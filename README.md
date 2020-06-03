@@ -1,3 +1,3 @@
 # SalaryApp
-dotnet ef database update
-run
+- dotnet ef database update
+- run
