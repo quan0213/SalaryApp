@@ -22,10 +22,10 @@ namespace SalaryApp.Models
         public int totalSalary { get; set; }
 
         //Foreign key: Staff 1->N Salary
-        public Staff Staff{get;set;}
+        public virtual Staff Staff{get;set;}
 
         //Foreign key: Salary 1->N Overtime, Allowance
-        public List<Overtime> Overtimes{get;set;}
-        public List<Allowance> Allowances{get;set;}
+        public virtual ICollection<Overtime> Overtimes{get;set;}
+        public virtual ICollection<Allowance> Allowances{get;set;}
     }
 }

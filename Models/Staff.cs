@@ -23,6 +23,7 @@ namespace SalaryApp.Models
         [StringLength(50)]
         public string Email { get; set; }
         //Foreign key: Staff 1->N Salary
-        public ICollection<Salary> Salaries{get;set;}
+        public virtual ICollection<Salary> Salaries{get;set;}
+
     }
 }

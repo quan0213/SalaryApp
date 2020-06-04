@@ -1,0 +1,74 @@
+@model SalaryApp.Models.SalaryAppViewModels.InstructorIndexData
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    Mã nhân viên
+                </th>
+                <th>
+                    Họ và tên
+                </th>
+                <th>
+                    Ngày gia nhâp
+                </th>
+                <th>
+                    Chức vụ
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Tổng Lương
+                </th>
+                <th>
+                    Setting
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.staffs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dayIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Regency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @{
+                        foreach (var item1 in item.Salaries)
+                        {
+                            @item1.totalSalary <br/>
+                            @* @item1.dayTakeId.DayOfYear @:  @item1.totalSalary <br/> *@
+                            break;
+                        }
+                    }
+            </td>
+            <td>
+                <a asp-action="MoreInfo" asp-route-id="@item.StaffId">More</a> |
+                <a asp-action="Edit" asp-route-id="@item.StaffId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.StaffId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
