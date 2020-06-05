@@ -1,0 +1,78 @@
+@model SalaryApp.Models.SalaryAppViewModels.InstructorIndexData
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    Mã nhân viên
+                </th>
+                <th>
+                    Họ và tên
+                </th>
+                <th>
+                    Tổng Lương
+                </th>
+                <th>
+                    Allowance
+                </th>
+                <th>
+                    Overtime
+                </th>
+                <th>
+                    Setting
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.staffs) {
+        @* Console.WriteLine(item.StaffId); *@
+        if(item.StaffId == (string)ViewData["StaffId"])
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            @{
+            foreach (var item1 in item.Salaries)
+            {
+            <td>
+                            @item1.totalSalary <br/>
+                            @* @item1.dayTakeId.DayOfYear @:  @item1.totalSalary <br/> *@
+            </td>
+                <td>
+                @{foreach(var item2 in item1.Allowances)
+                    {
+                                @item2.lunchCharge <br/>
+                    }
+                }
+                </td>
+                <td>
+                @{foreach(var item3 in item1.Overtimes)
+                    {
+                                @item3.overtimeSalary <br/>
+                    }
+                }
+                </td>
+                }
+            }
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StaffId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.StaffId">Delete</a>
+            </td>
+        </tr>
+        }
+    }
+    </tbody>
+</table>

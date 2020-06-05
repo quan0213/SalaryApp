@@ -20531,13 +20531,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/trungquan/Documents/DILAM/SalaryApp/Views/Staffs/MoreInfo.cshtml",
-      "TargetPath": "Views\\Staffs\\MoreInfo.cshtml",
+      "FilePath": "/Users/trungquan/Documents/DILAM/SalaryApp/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/trungquan/Documents/DILAM/SalaryApp/Views/_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FilePath": "/Users/trungquan/Documents/DILAM/SalaryApp/Views/Staffs/Details.cshtml",
+      "TargetPath": "Views\\Staffs\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20573,6 +20573,11 @@
     {
       "FilePath": "/Users/trungquan/Documents/DILAM/SalaryApp/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/trungquan/Documents/DILAM/SalaryApp/Views/Staffs/Create.cshtml",
+      "TargetPath": "Views\\Staffs\\Create.cshtml",
       "FileKind": "mvc"
     }
   ],

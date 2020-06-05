@@ -174,5 +174,6 @@
 /Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/Syncfusion.XlsIO.Portable.dll
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Staffs/Index.cshtml.g.cs
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Staffs/Delete.cshtml.g.cs
+/Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Staffs/Details.cshtml.g.cs
+/Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Staffs/Create.cshtml.g.cs
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Staffs/Edit.cshtml.g.cs
-/Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Staffs/MoreInfo.cshtml.g.cs

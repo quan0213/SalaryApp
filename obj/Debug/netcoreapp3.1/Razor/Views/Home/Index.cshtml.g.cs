@@ -26,8 +26,15 @@ using SalaryApp.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "/Users/trungquan/Documents/DILAM/SalaryApp/Views/_ViewImports.cshtml"
+using SalaryApp.Models.SalaryAppViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a1018bf37bf5ba129d84a775c98d2042b5cb547a", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"97567f1bccf4e4daf63c4369e4be36de6e060b06", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4e70ca20e61d8ab254007b8751070a8357853399", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
