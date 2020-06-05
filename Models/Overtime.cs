@@ -8,7 +8,7 @@ namespace SalaryApp.Models
     public class Overtime
     {
         [Key]
-        public int Id { get; set; }
+        public int OverTimeId { get; set;}
         public int SalaryId{get;set;}
         public int dayOff {get; set;}
         public int overtimeHours{get; set;}
@@ -16,5 +16,6 @@ namespace SalaryApp.Models
         
         //Tham chiếu tới salary
         public virtual Salary Salary{get;set;}
+        public virtual Allowance Allowance{get;set;}
     }
 }

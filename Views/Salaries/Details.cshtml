@@ -1,4 +1,4 @@
-@model InstructorIndexData
+@* @model InstructorIndexData
 @{
     ViewData["Title"] = "Index";
 }
@@ -32,9 +32,8 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model.staffs) {
-        @* Console.WriteLine(item.StaffId); *@
+    <tbody> *@
+@* @foreach (var item in Model.staffs) {
         if(item.StaffId == (string)ViewData["StaffId"])
         {
         <tr>
@@ -49,7 +48,6 @@
             {
             <td>
                             @item1.totalSalary <br/>
-                            @* @item1.dayTakeId.DayOfYear @:  @item1.totalSalary <br/> *@
             </td>
                 <td>
                 @{foreach(var item2 in item1.Allowances)
@@ -75,4 +73,6 @@
         }
     }
     </tbody>
-</table>
+</table> *@
+
+ @* @item1.dayTakeId.DayOfYear @:  @item1.totalSalary <br/> *@

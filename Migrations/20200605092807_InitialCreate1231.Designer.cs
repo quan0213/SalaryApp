@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalaryApp.Data;
 
 namespace SalaryApp.Migrations
 {
     [DbContext(typeof(SalaryAppContext))]
-    partial class SalaryAppContextModelSnapshot : ModelSnapshot
+    [Migration("20200605092807_InitialCreate1231")]
+    partial class InitialCreate1231
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

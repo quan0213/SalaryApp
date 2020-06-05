@@ -24,6 +24,5 @@ namespace SalaryApp.Models
         public string Email { get; set; }
         //Foreign key: Staff 1->N Salary
         public virtual ICollection<Salary> Salaries{get;set;}
-
     }
 }

@@ -28,8 +28,7 @@ namespace SalaryApp.Controllers
             viewModel.staffs = await _context.Staffs
                 .Include(i => i.Salaries)
                     .ThenInclude(i => i.Overtimes)
-                .Include(i => i.Salaries)
-                    .ThenInclude(i => i.Allowances)
+                        .ThenInclude(i => i.Allowance)
                 .AsNoTracking()
                 .ToListAsync();
 
