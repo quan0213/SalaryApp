@@ -176,3 +176,4 @@
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Staffs/Create.cshtml.g.cs
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Staffs/Edit.cshtml.g.cs
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/Index.cshtml.g.cs
+/Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/Details.cshtml.g.cs
