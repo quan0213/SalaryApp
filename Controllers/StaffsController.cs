@@ -51,24 +51,24 @@ namespace SalaryApp.Controllers
         }
 
         //Show Salary, Allowance, Overtime
-        public async Task<IActionResult> Details(string StaffId)
-        {
-            var viewModel = new InstructorIndexData();
-            viewModel.staffs = await _context.Staffs
-                .Include(i => i.Salaries)
-                    .ThenInclude(i => i.Overtimes)
-                .Include(i => i.Salaries)
-                    .ThenInclude(i => i.Allowances)
-                .AsNoTracking()
-                .ToListAsync();
+        // public async Task<IActionResult> Details(string StaffId)
+        // {
+        //     var viewModel = new InstructorIndexData();
+        //     viewModel.staffs = await _context.Staffs
+        //         .Include(i => i.Salaries)
+        //             .ThenInclude(i => i.Overtimes)
+        //         .Include(i => i.Salaries)
+        //             .ThenInclude(i => i.Allowances)
+        //         .AsNoTracking()
+        //         .ToListAsync();
 
-            if(StaffId != null){
-                ViewData["StaffId"] = StaffId;
-                // Salary salary = viewModel.salaries
-                //     .Where(i => i.StaffId == StaffId.ToString()).Single();
-            }
-            return View(viewModel);
-        }
+        //     if(StaffId != null){
+        //         ViewData["StaffId"] = StaffId;
+        //         // Salary salary = viewModel.salaries
+        //         //     .Where(i => i.StaffId == StaffId.ToString()).Single();
+        //     }
+        //     return View(viewModel);
+        // }
 
         //Create
         public IActionResult Create()

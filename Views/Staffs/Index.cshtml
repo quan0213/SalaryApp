@@ -22,13 +22,13 @@
     <thead>
         <tr>
                 <th>
-                    Mã nhân viên
+                    Mã
                 </th>
                 <th>
                     Họ và tên
                 </th>
                 <th>
-                    Ngày gia nhâp
+                    Ngày vào
                 </th>
                 <th>
                     Chức vụ
@@ -37,7 +37,7 @@
                     Email
                 </th>
                 <th>
-                    Tổng Lương
+                    Lương
                 </th>
                 <th>
                     Setting
@@ -74,7 +74,7 @@
                     }
             </td>
             <td>
-                <a asp-action="Details" asp-route-staffid="@item.StaffId">More</a> |
+                <a asp-area="" asp-controller="Salaries" asp-action="Index" asp-route-staffid="@item.StaffId">More</a> |
                 <a asp-action="Edit" asp-route-staffid="@item.StaffId">Edit</a> |
                 <a asp-action="Delete" asp-route-staffid="@item.StaffId">Delete</a>
             </td>
