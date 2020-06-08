@@ -9,8 +9,9 @@ namespace SalaryApp.Models
     public class Staff
     {
         [Key]
-        public string StaffId { get; set; }
+        public int StaffId { get; set; }
 
+        public string MaNV { get; set; }
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
@@ -23,6 +24,6 @@ namespace SalaryApp.Models
         [StringLength(50)]
         public string Email { get; set; }
         //Foreign key: Staff 1->N Salary
-        public virtual ICollection<Salary> Salaries{get;set;}
+        public ICollection<Salary> Salaries{get;set;}
     }
 }

@@ -22,7 +22,7 @@ namespace SalaryApp.Controllers
             _context = context;
         }
         //Show Salary, Allowance, Overtime
-        public async Task<IActionResult> Index(string StaffId)
+        public async Task<IActionResult> Index(int StaffId)
         {
             var viewModel = new InstructorIndexData();
             viewModel.staffs = await _context.Staffs

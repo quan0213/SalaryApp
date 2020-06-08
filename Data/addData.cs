@@ -39,7 +39,7 @@ namespace SalaryApp.Data
                 
                 context.Staffs.AddRange(
                     new Staff{
-                        StaffId = result.Tables[0].Rows[i][1].ToString(),
+                        MaNV = result.Tables[0].Rows[i][1].ToString(),
                         Name = result.Tables[0].Rows[i][2].ToString(),
                         dayIn = temp,
                         Regency = result.Tables[0].Rows[i][3].ToString(),

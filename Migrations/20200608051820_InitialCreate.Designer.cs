@@ -10,8 +10,8 @@ using SalaryApp.Data;
 namespace SalaryApp.Migrations
 {
     [DbContext(typeof(SalaryAppContext))]
-    [Migration("20200604083950_InitialCreate0")]
-    partial class InitialCreate0
+    [Migration("20200608051820_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,7 @@ namespace SalaryApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("SalaryId")
+                    b.Property<int>("OvertimeId")
                         .HasColumnType("int");
 
                     b.Property<int>("bonusKPI")
@@ -45,14 +45,15 @@ namespace SalaryApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SalaryId");
+                    b.HasIndex("OvertimeId")
+                        .IsUnique();
 
                     b.ToTable("Allowance");
                 });
 
             modelBuilder.Entity("SalaryApp.Models.Overtime", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OverTimeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -69,7 +70,7 @@ namespace SalaryApp.Migrations
                     b.Property<int>("overtimeSalary")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("OverTimeId");
 
                     b.HasIndex("SalaryId");
 
@@ -83,8 +84,8 @@ namespace SalaryApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("StaffId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("StaffId")
+                        .HasColumnType("int");
 
                     b.Property<int>("basicSalary")
                         .HasColumnType("int");
@@ -95,7 +96,7 @@ namespace SalaryApp.Migrations
                     b.Property<int>("chargeTax")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("dayTakeId")
+                    b.Property<DateTime>("dayTake")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("keepSalary")
@@ -116,13 +117,18 @@ namespace SalaryApp.Migrations
 
             modelBuilder.Entity("SalaryApp.Models.Staff", b =>
                 {
-                    b.Property<string>("StaffId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("StaffId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
+
+                    b.Property<string>("MaNV")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -142,9 +148,9 @@ namespace SalaryApp.Migrations
 
             modelBuilder.Entity("SalaryApp.Models.Allowance", b =>
                 {
-                    b.HasOne("SalaryApp.Models.Salary", "Salary")
-                        .WithMany("Allowances")
-                        .HasForeignKey("SalaryId")
+                    b.HasOne("SalaryApp.Models.Overtime", "Overtime")
+                        .WithOne("Allowance")
+                        .HasForeignKey("SalaryApp.Models.Allowance", "OvertimeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -162,7 +168,9 @@ namespace SalaryApp.Migrations
                 {
                     b.HasOne("SalaryApp.Models.Staff", "Staff")
                         .WithMany("Salaries")
-                        .HasForeignKey("StaffId");
+                        .HasForeignKey("StaffId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

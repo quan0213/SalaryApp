@@ -32,7 +32,7 @@ namespace SalaryApp.Controllers
                         .ThenInclude(i => i.Overtimes)
                             .ThenInclude(i => i.Allowance)
                     .AsNoTracking()
-                    .OrderBy(i => i.StaffId)
+                    .OrderBy(i => i.MaNV)
                     .ToListAsync();
             if(searchString != null)
             {
@@ -40,7 +40,7 @@ namespace SalaryApp.Controllers
     
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    viewModel.staffs = viewModel.staffs.Where(s => s.StaffId.Contains(searchString) || s.Name.Contains(searchString) || s.Email.Contains(searchString)  || s.Regency.Contains(searchString));
+                    viewModel.staffs = viewModel.staffs.Where(s => s.MaNV.Contains(searchString) || s.Name.Contains(searchString) || s.Email.Contains(searchString)  || s.Regency.Contains(searchString));
                 }
                 return View(viewModel);
             }
@@ -77,7 +77,7 @@ namespace SalaryApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StaffId,Name,dayIn,Regency,Email")] Staff staff)
+        public async Task<IActionResult> Create([Bind("MaNV,Name,dayIn,Regency,Email")] Staff staff)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace SalaryApp.Controllers
                                    select d;
             ViewBag.StaffID = new SelectList(staffsQuery.AsNoTracking(), "StaffId", "Name", selectedStaff);
         }
-        public async Task<IActionResult> Edit(string staffid)
+        public async Task<IActionResult> Edit(int? staffid)
         {
             if (staffid == null)
             {
@@ -116,7 +116,7 @@ namespace SalaryApp.Controllers
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditPost(string staffid)
+        public async Task<IActionResult> EditPost(int? staffid)
         {
             if (staffid == null)
             {
@@ -128,7 +128,7 @@ namespace SalaryApp.Controllers
 
             if (await TryUpdateModelAsync<Staff>(staffToUpdate,
                 "",
-                c => c.StaffId, c => c.Name, c => c.dayIn, c => c.Regency, c => c.Email))
+                c => c.MaNV, c => c.Name, c => c.dayIn, c => c.Regency, c => c.Email))
             {
                 try
                 {
@@ -147,7 +147,7 @@ namespace SalaryApp.Controllers
             return View(staffToUpdate);
         }
         //Delete
-        public async Task<IActionResult> Delete(string staffid)
+        public async Task<IActionResult> Delete(int? staffid)
         {
             if (staffid == null)
             {
@@ -166,7 +166,7 @@ namespace SalaryApp.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string staffid)
+        public async Task<IActionResult> DeleteConfirmed(int staffid)
         {
             var staff = await _context.Staffs.FindAsync(staffid);
             _context.Staffs.Remove(staff);

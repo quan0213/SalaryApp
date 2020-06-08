@@ -10,7 +10,7 @@
 </p>
 @foreach (var item in Model.staffs)
 {
-    if(item.StaffId == (string)ViewData["StaffId"])
+    if(item.StaffId == (int)ViewData["StaffId"])
     {
         <div>
             <dl class="row">
@@ -18,7 +18,7 @@
                     Mã nhân viên:
                 </dt>
                 <dd class = "col-sm-10">
-                    @Html.DisplayFor(modelItem => item.StaffId)
+                    @Html.DisplayFor(modelItem => item.MaNV)
                 </dd>
                 <dt class = "col-sm-2">
                     Họ và tên:

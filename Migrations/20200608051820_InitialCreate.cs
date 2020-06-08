@@ -11,7 +11,9 @@ namespace SalaryApp.Migrations
                 name: "Staff",
                 columns: table => new
                 {
-                    StaffId = table.Column<string>(nullable: false),
+                    StaffId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MaNV = table.Column<string>(nullable: true),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     dayIn = table.Column<DateTime>(nullable: false),
                     Regency = table.Column<string>(nullable: true),
@@ -28,14 +30,14 @@ namespace SalaryApp.Migrations
                 {
                     SalaryId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StaffId = table.Column<string>(nullable: true),
-                    dayTakeId = table.Column<DateTime>(nullable: false),
+                    dayTake = table.Column<DateTime>(nullable: false),
                     chargeTax = table.Column<int>(nullable: false),
                     chargeInsurrance = table.Column<int>(nullable: false),
                     supportCash = table.Column<int>(nullable: false),
                     basicSalary = table.Column<int>(nullable: false),
                     keepSalary = table.Column<int>(nullable: false),
-                    totalSalary = table.Column<int>(nullable: false)
+                    totalSalary = table.Column<int>(nullable: false),
+                    StaffId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,29 +47,6 @@ namespace SalaryApp.Migrations
                         column: x => x.StaffId,
                         principalTable: "Staff",
                         principalColumn: "StaffId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Allowance",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SalaryId = table.Column<int>(nullable: false),
-                    bonusKPI = table.Column<int>(nullable: false),
-                    uniformsCharge = table.Column<int>(nullable: false),
-                    phoneCharge = table.Column<int>(nullable: false),
-                    lunchCharge = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Allowance", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Allowance_Salary_SalaryId",
-                        column: x => x.SalaryId,
-                        principalTable: "Salary",
-                        principalColumn: "SalaryId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -75,16 +54,16 @@ namespace SalaryApp.Migrations
                 name: "Overtime",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    OverTimeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SalaryId = table.Column<int>(nullable: false),
                     dayOff = table.Column<int>(nullable: false),
                     overtimeHours = table.Column<int>(nullable: false),
-                    overtimeSalary = table.Column<int>(nullable: false)
+                    overtimeSalary = table.Column<int>(nullable: false),
+                    SalaryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Overtime", x => x.Id);
+                    table.PrimaryKey("PK_Overtime", x => x.OverTimeId);
                     table.ForeignKey(
                         name: "FK_Overtime_Salary_SalaryId",
                         column: x => x.SalaryId,
@@ -93,10 +72,34 @@ namespace SalaryApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Allowance",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    bonusKPI = table.Column<int>(nullable: false),
+                    uniformsCharge = table.Column<int>(nullable: false),
+                    phoneCharge = table.Column<int>(nullable: false),
+                    lunchCharge = table.Column<int>(nullable: false),
+                    OvertimeId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Allowance", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Allowance_Overtime_OvertimeId",
+                        column: x => x.OvertimeId,
+                        principalTable: "Overtime",
+                        principalColumn: "OverTimeId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
-                name: "IX_Allowance_SalaryId",
+                name: "IX_Allowance_OvertimeId",
                 table: "Allowance",
-                column: "SalaryId");
+                column: "OvertimeId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Overtime_SalaryId",

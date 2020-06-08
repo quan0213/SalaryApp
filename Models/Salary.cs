@@ -10,10 +10,9 @@ namespace SalaryApp.Models
     {
         [Key]
         public int SalaryId{get;set;}
-        public string StaffId{get;set;}
 
         [DataType(DataType.Date)]
-        public DateTime dayTakeId { get; set; }
+        public DateTime dayTake{ get; set; }
         public int chargeTax { get; set; }
         public int chargeInsurrance { get; set; }
         public int supportCash { get; set; }
@@ -22,10 +21,11 @@ namespace SalaryApp.Models
         public int totalSalary { get; set; }
 
         //Foreign key: Staff 1->N Salary
-        public virtual Staff Staff{get;set;}
+        public Staff Staff{get;set;}
+        public int StaffId{get;set;}
 
         //Foreign key: Salary 1->N Overtime
-        public virtual ICollection<Overtime> Overtimes{get;set;}
+        public ICollection<Overtime> Overtimes{get;set;}
         // public virtual ICollection<Allowance> Allowances{get;set;}
     }
 }
