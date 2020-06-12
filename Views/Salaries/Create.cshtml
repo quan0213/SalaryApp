@@ -1,0 +1,62 @@
+@model Salary
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Thêm bảng lương mới</h1>
+
+<h4></h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="StaffId" class="form-control" value="@ViewData["StaffId"]"/>
+                <span asp-validation-for="StaffId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dayTake" class="control-label"> Ngày nhận</label>
+                <input asp-for="dayTake" class="form-control" />
+                <span asp-validation-for="dayTake" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="basicSalary" class="control-label"> Lương cơ bản</label>
+                <input asp-for="basicSalary" class="form-control" />
+                <span asp-validation-for="basicSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="supportCash" class="control-label">Hỗ trợ</label>
+                <input asp-for="supportCash" class="form-control" />
+                <span asp-validation-for="supportCash" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="keepSalary" class="control-label"> Giữ Lương</label>
+                <input asp-for="keepSalary" class="form-control" />
+                <span asp-validation-for="keepSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="chargeInsurrance" class="control-label">Lương tham gia BHXH</label>
+                <input asp-for="chargeInsurrance" class="form-control" />
+                <span asp-validation-for="chargeInsurrance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="chargeTax" class="control-label"> Thuế giảm trừ GC</label>
+                <input asp-for="chargeTax" class="form-control" />
+                <span asp-validation-for="chargeTax" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Tiếp tục" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Huỷ Thêm</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

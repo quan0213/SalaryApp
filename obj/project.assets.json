@@ -880,6 +880,18 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
+      "Rick.Docs.Samples.RouteInfo/1.0.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Docs.Samples.RouteInfo.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Docs.Samples.RouteInfo.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "runtime.native.System/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3724,6 +3736,18 @@
         "lib/netstandard1.6/NuGet.Frameworks.xml",
         "nuget.frameworks.4.7.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
+      ]
+    },
+    "Rick.Docs.Samples.RouteInfo/1.0.0.4": {
+      "sha512": "UZWAKDz1UMOYR5EzjgUH+y8N87Q8q6WZr7JZ9fKrtZTzzJPE0e7UVRq0zYaxca6zKBzMzyNc0wPYYPhkgkf4qg==",
+      "type": "package",
+      "path": "rick.docs.samples.routeinfo/1.0.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.1/Microsoft.Docs.Samples.RouteInfo.dll",
+        "rick.docs.samples.routeinfo.1.0.0.4.nupkg.sha512",
+        "rick.docs.samples.routeinfo.nuspec"
       ]
     },
     "runtime.native.System/4.3.0": {
@@ -7446,6 +7470,7 @@
       "Microsoft.Extensions.DependencyInjection >= 3.1.4",
       "Microsoft.Extensions.Logging.Console >= 3.1.4",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.3",
+      "Rick.Docs.Samples.RouteInfo >= 1.0.0.4",
       "Syncfusion.XlsIO.Net.Core >= 18.1.0.53",
       "System.Data.SqlClient >= 4.8.1"
     ]
@@ -7522,6 +7547,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.3, )"
+          },
+          "Rick.Docs.Samples.RouteInfo": {
+            "target": "Package",
+            "version": "[1.0.0.4, )"
           },
           "Syncfusion.XlsIO.Net.Core": {
             "target": "Package",

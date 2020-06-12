@@ -177,3 +177,9 @@
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Staffs/Edit.cshtml.g.cs
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/Index.cshtml.g.cs
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/Details.cshtml.g.cs
+/Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/Create.cshtml.g.cs
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/Microsoft.Docs.Samples.RouteInfo.dll
+/Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/SalaryApp.MvcApplicationPartsAssemblyInfo.cs
+/Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/CreateOvertime.cshtml.g.cs
+/Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/CreateAllowance.cshtml.g.cs
+/Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/Delete.cshtml.g.cs

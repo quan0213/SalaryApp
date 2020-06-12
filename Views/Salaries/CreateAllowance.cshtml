@@ -1,0 +1,53 @@
+@model Allowance
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Điền thông tin bảng phụ cấp</h1>
+
+<h4></h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateAllowance">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="OvertimeId" class="form-control" value="@ViewData["OvertimeId"]"/>
+                <span asp-validation-for="OvertimeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="staffTerm" class="form-control" value="@ViewData["StaffId"]"/>
+                <span asp-validation-for="staffTerm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bonusKPI" class="control-label"> Thưởng KPI</label>
+                <input asp-for="bonusKPI" class="form-control" />
+                <span asp-validation-for="bonusKPI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="uniformsCharge" class="control-label">TC trang phục</label>
+                <input asp-for="uniformsCharge" class="form-control" />
+                <span asp-validation-for="uniformsCharge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="phoneCharge" class="control-label">TC điện thoại</label>
+                <input asp-for="phoneCharge" class="form-control" />
+                <span asp-validation-for="phoneCharge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lunchCharge" class="control-label">Cơm trưa</label>
+                <input asp-for="lunchCharge" class="form-control" />
+                <span asp-validation-for="lunchCharge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Hoàn thành" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

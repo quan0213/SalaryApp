@@ -8,14 +8,17 @@ namespace SalaryApp.Models
     public class Allowance
     {
         [Key]
-        public int Id { get; set; }
-        public int OvertimeId{get;set;}
-        public int bonusKPI {get; set;}
-        public int uniformsCharge {get; set;}
-        public int phoneCharge {get;set;}
-        public int lunchCharge {get;set;}
+        public int Id { get; set; }  
+        public long bonusKPI {get; set;}
+        public long uniformsCharge {get; set;}
+        public long phoneCharge {get;set;}
+        public long lunchCharge {get;set;}
+
+        //temp for Staffid
+        public int staffTerm{get;set;}
 
         //Tham chiếu tới salary
-        public virtual Overtime Overtime{get; set;}
+        public int OvertimeId{get;set;}
+        public Overtime Overtime{get; set;}
     }
 }

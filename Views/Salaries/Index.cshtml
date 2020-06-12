@@ -3,22 +3,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create </a>
-</p>
 @foreach (var item in Model.staffs)
 {
-    if(item.StaffId == (string)ViewData["StaffId"])
+    if(item.StaffId == (int)ViewData["StaffId"])
     {
+        <p>
+            <a asp-action="Create" asp-route-staffid="@item.StaffId">Create a new Salary </a>
+        </p>
         <div>
             <dl class="row">
                 <dt class = "col-sm-2">
                     Mã nhân viên:
                 </dt>
                 <dd class = "col-sm-10">
-                    @Html.DisplayFor(modelItem => item.StaffId)
+                    @Html.DisplayFor(modelItem => item.MaNV)
                 </dd>
                 <dt class = "col-sm-2">
                     Họ và tên:
@@ -34,6 +32,224 @@
                 </dd>
             </dl>
             <hr/>
+        </div>
+        <div class="table-reponsive">
+        <table class="table table-bordered" style="min-width: 3000px; text-align:center;">
+            <thead>
+                <tr>
+                        <th rowspan="2">
+                            Ngày nhận lương
+                        </th>
+                        <th rowspan="2">
+                            Lương cơ bản
+                        </th>
+                        <th rowspan="2">
+                            Hỗ trợ
+                        </th>
+                        <th rowspan="2">
+                            Giữ Lương
+                        </th>
+                        <th colspan="4">
+                            BHXH NV Tham gia
+                        </th>
+                        <th colspan="3">
+                            BHXH CT Tham gia
+                        </th>
+                        <th rowspan="2">
+                            Tổng phụ cấp
+                        </th>
+                        <th rowspan="2">
+                            Tổng Lương
+                        </th>
+                        <th colspan="3">
+                            Thuế
+                        </th>
+                        <th colspan="2">
+                            Tăng ca
+                        </th>
+                        <th rowspan="2">
+                            Số ngày làm việc
+                        </th>
+                        <th rowspan="2">
+                            Lương ngày công
+                        </th>
+                        <th rowspan="2">
+                            Tổng thực lãnh
+                        </th>
+                        <th rowspan="2">
+                            Xoá thuộc tính
+                        </th>
+                        <th rowspan="2">
+                            Thêm thêm giờ và phụ cấp
+                        </th>
+                </tr>
+                <tr>
+                    <th>
+                        Lương tham gia BHXH
+                    </th>
+                    <th>
+                        BHXH
+                    </th>
+                    <th>
+                        BHYT
+                    </th>
+                    <th>
+                        BHTN
+                    </th>
+                    <th>
+                        BHXH
+                    </th>
+                    <th>
+                        BHYT
+                    </th>
+                    <th>
+                        BHTN
+                    </th>
+                    <th>
+                        Thu nhập tính thuế
+                    </th>
+                    <th>
+                        Giảm trừ GC
+                    </th>
+                    <th>
+                        Thuế TNCN
+                    </th>
+                    <th>
+                        Số giờ tăng ca
+                    </th>
+                    <th>
+                        Lương tăng ca
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item1 in item.Salaries)
+                { 
+                    var i = 0;
+                    @foreach (var item2 in item1.Overtimes)
+                    {
+                    var x = item1.chargeInsurrance;
+                    var insurranceStaff = (x*(8+1.5+1)/100);
+                    var insurranceCompany = (x*(17.5+3+1)/100);
+                    <tr>
+                        @if(i > 0)
+                        {
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        }
+                        else{
+                            <td>
+                                @item1.dayTake.Day/@item1.dayTake.Month/@item1.dayTake.Year
+                        </td>
+                        <td>
+                                @item1.basicSalary
+                        </td>
+                        <td>
+                                @item1.supportCash
+                        </td>
+                        <td>
+                                @item1.keepSalary
+                        </td>
+                        <td>
+                                @item1.chargeInsurrance
+                        </td>
+                        <td>
+                                @(x*8/100)
+                        </td>
+                        <td>
+                                @(x*1.5/100)
+                        </td>
+                        <td>
+                                @(x*1/100)
+                        </td>
+                        <td>
+                                @(x*17.5/100)
+                        </td>
+                        <td>
+                                @(x*3/100)
+                        </td>
+                        <td>
+                                @(x*1/100)
+                        </td>
+                        }
+                        @{
+                            long mySalary = 0;
+                            long totalAllowance = 0;
+                            long myMoney = 0;
+                            if(item2.Allowance != null){
+                                totalAllowance = item2.Allowance.bonusKPI + item2.Allowance.lunchCharge + item2.Allowance.phoneCharge + item2.Allowance.uniformsCharge;
+                                mySalary = ((item1.basicSalary+totalAllowance)/22*(22 - item2.dayOff));
+                                myMoney = (int)(mySalary - insurranceStaff - totalAllowance + item2.Allowance.bonusKPI - 9000000);
+                            }
+                            else{
+                                totalAllowance = 0;
+                                mySalary = ((item1.basicSalary+totalAllowance)/22*(22 - item2.dayOff));
+                                myMoney = (int)(mySalary - insurranceStaff - 9000000);
+                            } 
+                            
+                            var staffTax = 0;
+                            if(myMoney > 80000000){staffTax =(int)((myMoney - 80000000)*0.35 + 18150000);}
+                            else if(myMoney > 52000000){staffTax =(int)((myMoney - 52000000)*0.3 + 9750000);}
+                            else if(myMoney > 32000000){staffTax =(int)((myMoney - 32000000)*0.25 + 4750000);}
+                            else if(myMoney > 18000000){staffTax =(int)((myMoney - 18000000)*0.2 + 1950000);}
+                            else if(myMoney > 10000000){staffTax =(int)((myMoney - 10000000)*0.15 + 750000);}
+                            else if(myMoney > 5000000){staffTax =(int)((myMoney - 5000000)*0.1 + 250000);}
+                            else{staffTax =(int)(myMoney*0.05);}
+                        }
+                        <td>
+                            @totalAllowance
+                        </td>
+                        <td>
+                            @(item1.totalSalary = item1.basicSalary + totalAllowance)
+                        </td>
+                        <td>
+                            @myMoney
+                        </td>
+                        <td>
+                            @item1.chargeTax
+                        </td>
+                        <td>
+                            @staffTax
+                        </td>
+                        <td>
+                            @item2.overtimeHours
+                        </td>
+                        <td>
+                            @(@item1.basicSalary/20/8*@item2.overtimeHours)
+                        </td>
+                        <td>
+                            @(22 - item2.dayOff)/22
+                        </td>
+                        <td>
+                            @mySalary
+                        </td>
+                        <td>
+                            @(mySalary - insurranceStaff - staffTax + item1.supportCash - item1.keepSalary + item2.overtimeSalary)
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-overtimeid="@item2.OverTimeId">Delete</a>
+                        </td>
+                        if(i == 0){
+                            <td>
+                            <a asp-action="CreateOvertime" asp-route-staffid="@item.StaffId" asp-route-salaryid="@item1.SalaryId">Create</a>
+                            </td>
+                        }
+                        <td></td>  
+                        </tr>
+                        <p style="display: none">@(i = i + 1);</p>
+                    }
+                }
+            </tbody>
+        </table>
         </div>
     }
 }

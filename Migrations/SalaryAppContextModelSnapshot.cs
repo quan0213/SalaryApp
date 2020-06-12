@@ -29,17 +29,20 @@ namespace SalaryApp.Migrations
                     b.Property<int>("OvertimeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("bonusKPI")
+                    b.Property<long>("bonusKPI")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("lunchCharge")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("phoneCharge")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("staffTerm")
                         .HasColumnType("int");
 
-                    b.Property<int>("lunchCharge")
-                        .HasColumnType("int");
-
-                    b.Property<int>("phoneCharge")
-                        .HasColumnType("int");
-
-                    b.Property<int>("uniformsCharge")
-                        .HasColumnType("int");
+                    b.Property<long>("uniformsCharge")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -65,7 +68,10 @@ namespace SalaryApp.Migrations
                     b.Property<int>("overtimeHours")
                         .HasColumnType("int");
 
-                    b.Property<int>("overtimeSalary")
+                    b.Property<long>("overtimeSalary")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("staffTerm")
                         .HasColumnType("int");
 
                     b.HasKey("OverTimeId");
@@ -82,29 +88,29 @@ namespace SalaryApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("StaffId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("basicSalary")
+                    b.Property<int>("StaffId")
                         .HasColumnType("int");
 
-                    b.Property<int>("chargeInsurrance")
-                        .HasColumnType("int");
+                    b.Property<long>("basicSalary")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("chargeTax")
-                        .HasColumnType("int");
+                    b.Property<long>("chargeInsurrance")
+                        .HasColumnType("bigint");
 
-                    b.Property<DateTime>("dayTakeId")
+                    b.Property<long>("chargeTax")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("dayTake")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("keepSalary")
-                        .HasColumnType("int");
+                    b.Property<long>("keepSalary")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("supportCash")
-                        .HasColumnType("int");
+                    b.Property<long>("supportCash")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("totalSalary")
-                        .HasColumnType("int");
+                    b.Property<long>("totalSalary")
+                        .HasColumnType("bigint");
 
                     b.HasKey("SalaryId");
 
@@ -115,13 +121,18 @@ namespace SalaryApp.Migrations
 
             modelBuilder.Entity("SalaryApp.Models.Staff", b =>
                 {
-                    b.Property<string>("StaffId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("StaffId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
+
+                    b.Property<string>("MaNV")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -161,7 +172,9 @@ namespace SalaryApp.Migrations
                 {
                     b.HasOne("SalaryApp.Models.Staff", "Staff")
                         .WithMany("Salaries")
-                        .HasForeignKey("StaffId");
+                        .HasForeignKey("StaffId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

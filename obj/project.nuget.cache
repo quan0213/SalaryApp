@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/BkajHh2ufSHqv8EHqK8W9+QKTNEylpfn8JhHCDIC49iGJx9ss6juAmMOJKYmVQu8Tp8zgWfW37gSj2Y5LtOOQ==",
+  "dgSpecHash": "cJS+GSByKa76SrIcM2yUmtcmIJB+q7Fjevz289oJYI9S8NUgPrcmWFSLJ7Ij0IcOqpXltLiXGgW1CN8aMgPWTA==",
   "success": true,
   "projectFilePath": "/Users/trungquan/Documents/DILAM/SalaryApp/SalaryApp.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,7 @@
     "/Users/trungquan/.nuget/packages/netstandard.library/2.0.0/netstandard.library.2.0.0.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/newtonsoft.json/11.0.2/newtonsoft.json.11.0.2.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/nuget.frameworks/4.7.0/nuget.frameworks.4.7.0.nupkg.sha512",
+    "/Users/trungquan/.nuget/packages/rick.docs.samples.routeinfo/1.0.0.4/rick.docs.samples.routeinfo.1.0.0.4.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/runtime.native.system/4.3.0/runtime.native.system.4.3.0.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/runtime.native.system.data.sqlclient.sni/4.7.0/runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

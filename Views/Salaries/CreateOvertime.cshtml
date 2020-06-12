@@ -1,0 +1,43 @@
+@model Overtime
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Điền thông tin bảng làm thêm giờ</h1>
+
+<h4></h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateOverTime">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="SalaryId" class="form-control" value="@ViewData["SalaryId"]"/>
+                <span asp-validation-for="SalaryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="staffTerm" class="form-control" value="@ViewData["StaffId"]"/>
+                <span asp-validation-for="staffTerm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dayOff" class="control-label"> Ngày nghỉ</label>
+                <input asp-for="dayOff" class="form-control" />
+                <span asp-validation-for="dayOff" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="overtimeHours" class="control-label">Số giờ tăng ca</label>
+                <input asp-for="overtimeHours" class="form-control" />
+                <span asp-validation-for="overtimeHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Tiếp tục" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
