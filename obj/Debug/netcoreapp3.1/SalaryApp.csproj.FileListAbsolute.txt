@@ -183,3 +183,6 @@
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/CreateOvertime.cshtml.g.cs
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/CreateAllowance.cshtml.g.cs
 /Users/trungquan/Documents/DILAM/SalaryApp/obj/Debug/netcoreapp3.1/Razor/Views/Salaries/Delete.cshtml.g.cs
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/MailKit.dll
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/MimeKit.dll
+/Users/trungquan/Documents/DILAM/SalaryApp/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll

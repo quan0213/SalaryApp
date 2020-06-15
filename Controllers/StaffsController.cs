@@ -10,6 +10,8 @@ using System.Web;
 using SalaryApp.Models.SalaryAppViewModels;
 using SalaryApp.Models;
 using System.Text.Encodings.Web;
+using MailKit.Net.Smtp;
+using MimeKit;
 
 
 namespace SalaryApp.Controllers
@@ -172,6 +174,41 @@ namespace SalaryApp.Controllers
             _context.Staffs.Remove(staff);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        //Send Email
+        public async Task<IActionResult> SendEmail()
+        {
+            var viewModel = new InstructorIndexData();
+                viewModel.staffs = await _context.Staffs
+                    .Include(i => i.Salaries)
+                        .ThenInclude(i => i.Overtimes)
+                            .ThenInclude(i => i.Allowance)
+                    .AsNoTracking()
+                    .OrderBy(i => i.MaNV)
+                    .ToListAsync();
+            foreach(var item in viewModel.staffs){
+                if(item.Email != "None"){
+                    var message = new MimeMessage();
+                    // Chủ đề là Test
+                    message.From.Add(new MailboxAddress("Test", "vtquan0213@gmail.com"));
+                    // Gửi đến tên ng nhận, email ng nhận
+                    message.To.Add(new MailboxAddress(@item.Name,item.Email));
+                    //Chủ đề
+                    message.Subject = "Test";
+                    // Nội dung
+                    message.Body = new TextPart("plain"){
+                        Text = "Hello"
+                    };
+                    using(var client = new SmtpClient()){
+                        client.Connect("smtp.gmail.com", 587, false);
+                        client.Authenticate("vtquan0213@gmail.com","quan1236");
+                        client.Send(message);
+                        client.Disconnect(true);
+                    }
+                }
+            }
+            return View();
         }
     }
 }
